@@ -20,7 +20,7 @@
     "github-login",
     "react-github-login"
   ],
-  "license": "BSD",
+  "license": "MIT",
   "peerDependencies": {
     "react": "^15.1.0"
   },
