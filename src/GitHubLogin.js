@@ -55,12 +55,13 @@ class GitHubLogin extends Component {
 
   render() {
     const { className, buttonText, children } = this.props;
+    const attrs = { onClick: this.onBtnClick };
 
-    return (
-      <button className={className} onClick={this.onBtnClick}>
-        { children || buttonText }
-      </button>
-    );
+    if (className) {
+      attrs.className = className;
+    }
+
+    return <button {...attrs}>{ children || buttonText }</button>;
   }
 }
 

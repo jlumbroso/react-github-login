@@ -1,0 +1,21 @@
+exports[`test Renders defaults 1`] = `
+<button
+  onClick={[Function]}>
+  Sign in with GitHub
+</button>
+`;
+
+exports[`test Renders with \`buttonText\` 1`] = `
+<button
+  onClick={[Function]}>
+  Foo
+</button>
+`;
+
+exports[`test Renders with \`className\` 1`] = `
+<button
+  className="foobar"
+  onClick={[Function]}>
+  Sign in with GitHub
+</button>
+`;
