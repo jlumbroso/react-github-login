@@ -1,6 +1,6 @@
 import React from 'react';
-import GitHubLogin from '../src/GitHubLogin.js';
-import PopupWindow from '../src/PopupWindow.js';
+import GitHubLogin from '../GitHubLogin.js';
+import PopupWindow from '../PopupWindow.js';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
