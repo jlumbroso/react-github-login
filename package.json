@@ -2,7 +2,7 @@
   "name": "react-github-login",
   "version": "1.0.0",
   "description": "A React Component for GitHub Login",
-  "main": "dist/github-login.js",
+  "main": "dist/GitHubLogin.js",
   "scripts": {
     "build": "NODE_ENV=production webpack -p --config webpack.config.dist.js",
     "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
