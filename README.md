@@ -16,7 +16,6 @@ const onError = response => console.error(response);
 
 ReactDOM.render(
   <GitHubLogin clientId="ac56fad434a3a3c1561e"
-    redirectUri="http://domain.test/auth/github"
     onSuccess={onSuccess}
     onError={onError}/>,
   document.getElementById('example')
@@ -33,7 +32,7 @@ Client ID for GitHub OAuth application.
 
 #### `redirectUri`
 
-`{string}` _required_
+`{string}`
 
 Registered redirect URI for GitHub OAuth application.
 
