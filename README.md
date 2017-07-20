@@ -12,12 +12,12 @@ import ReactDOM from 'react-dom';
 import GitHubLogin from 'react-github-login';
 
 const onSuccess = response => console.log(response);
-const onError = response => console.error(response);
+const onFailure = response => console.error(response);
 
 ReactDOM.render(
   <GitHubLogin clientId="ac56fad434a3a3c1561e"
     onSuccess={onSuccess}
-    onError={onError}/>,
+    onFailure={onFailure}/>,
   document.getElementById('example')
 );
 ```
@@ -60,7 +60,7 @@ Text content for the login button.
 
 Callback for successful login. An object will be passed as an argument to the callback, e.g. `{ "code": "..." }`.
 
-#### `onError`
+#### `onFailure`
 
 `{function}`
 

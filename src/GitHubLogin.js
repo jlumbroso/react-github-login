@@ -10,7 +10,7 @@ class GitHubLogin extends Component {
     className: PropTypes.string,
     clientId: PropTypes.string.isRequired,
     onSuccess: PropTypes.func,
-    onError: PropTypes.func,
+    onFailure: PropTypes.func,
     redirectUri: PropTypes.string.isRequired,
     scope: PropTypes.string,
   }
@@ -19,7 +19,7 @@ class GitHubLogin extends Component {
     buttonText: 'Sign in with GitHub',
     scope: 'user:email',
     onSuccess: () => {},
-    onError: () => {},
+    onFailure: () => {},
   }
 
   onBtnClick = () => {
@@ -37,20 +37,20 @@ class GitHubLogin extends Component {
 
     popup.then(
       data => this.onSuccess(data),
-      error => this.onError(error)
+      error => this.onFailure(error)
     );
   }
 
   onSuccess = (data) => {
     if (!data.code) {
-      return this.onError(new Error('\'code\' not found'));
+      return this.onFailure(new Error('\'code\' not found'));
     }
 
     this.props.onSuccess(data);
   }
 
-  onError = (error) => {
-    this.props.onError(error);
+  onFailure = (error) => {
+    this.props.onFailure(error);
   }
 
   render() {

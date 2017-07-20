@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import GitHubLogin from '../src/GitHubLogin';
 
 const onSuccess = response => console.log(response);
-const onError = response => console.error(response);
+const onFailure = response => console.error(response);
 
 ReactDOM.render(
   <GitHubLogin clientId=""
     redirectUri=""
     onSuccess={onSuccess}
-    onError={onError}/>,
+    onFailure={onFailure}/>,
   document.getElementById('example')
 );
