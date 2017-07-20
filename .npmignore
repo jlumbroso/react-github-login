@@ -1,3 +1,4 @@
+/.circleci
 /coverage
 /example
 /src/__tests__
