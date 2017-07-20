@@ -22,7 +22,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "react": "^15.1.0"
+    "react": "^15.6.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
