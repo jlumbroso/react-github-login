@@ -9,15 +9,21 @@ module.exports = {
     example: ['webpack/hot/dev-server', './example/index.js'],
   },
   module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel', exclude: /node_modules/ }
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      }
     ]
   },
   output: {
     filename: 'example/bundle.js'
   },
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['.js'],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()

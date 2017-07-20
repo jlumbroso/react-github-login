@@ -4,27 +4,31 @@ const webpack = require('webpack');
 module.exports = {
   devtool: 'cheap-module-source-map',
   entry: [
-    './src/index.js',
+    './src/index.js'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'GitHubLogin.js',
     libraryTarget: 'umd',
-    library: 'GitHubLogin',
+    library: 'GitHubLogin'
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loader: 'babel',
-      exclude: /node_modules/,
-    }],
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      }
+    ],
   },
   externals: {
     'react': 'react',
-    'react-dom': 'ReactDOM',
+    'react-dom': 'ReactDOM'
   },
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['.js']
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -32,8 +36,7 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production'),
       },
     }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-  ],
+    new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
+    new webpack.optimize.OccurrenceOrderPlugin()
+  ]
 };
