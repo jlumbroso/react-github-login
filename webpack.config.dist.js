@@ -13,15 +13,11 @@ module.exports = {
     library: 'GitHubLogin'
   },
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
-      }
-    ],
+    rules: [{
+      use: 'babel-loader',
+      test: /\.js$/,
+      exclude: /node_modules/
+    }],
   },
   externals: {
     'react': 'react',
@@ -33,10 +29,13 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production'),
+        'NODE_ENV': JSON.stringify('production')
       },
     }),
-    new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
-    new webpack.optimize.OccurrenceOrderPlugin()
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
+    new webpack.optimize.AggressiveMergingPlugin()
   ]
 };
