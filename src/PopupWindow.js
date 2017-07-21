@@ -21,25 +21,32 @@ class PopupWindow {
   poll() {
     this.promise = new Promise((resolve, reject) => {
       this._iid = window.setInterval(() => {
-        const popup = this.window;
+        try {
+          const popup = this.window;
 
-        if (!popup || popup.closed !== false) {
+          if (!popup || popup.closed !== false) {
+            this.close();
+
+            reject(new Error('The popup was closed'));
+
+            return;
+          }
+
+          if (popup.location.href === this.url || popup.location.pathname === 'blank') {
+            return;
+          }
+
+          const params = toParams(popup.location.search.replace(/^\?/, ''));
+
+          resolve(params);
+
           this.close();
-
-          reject(new Error('The popup was closed'));
-
-          return;
+        } catch (error) {
+          /*
+           * Ignore DOMException: Blocked a frame with origin from accessing a
+           * cross-origin frame.
+           */
         }
-
-        if (popup.location.href === this.url || popup.location.pathname === 'blank') {
-          return;
-        }
-
-        const params = toParams(popup.location.search.replace(/^\?/, ''));
-
-        resolve(params);
-
-        this.close();
       }, 500);
     });
   }
