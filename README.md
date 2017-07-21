@@ -1,5 +1,6 @@
 # React GitHub Login
 
+![NPM](https://img.shields.io/npm/v/react-github-login.svg?style=flat)
 ![CircleCI](https://circleci.com/gh/checkr/react-github-login.svg?style=shield&circle-token=493b950057f69e68ac8698a9ee189b2132a296e4)
 
 React component for [GitHub login](https://developer.github.com/v3/oauth/).
