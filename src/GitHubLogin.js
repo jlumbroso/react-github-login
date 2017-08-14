@@ -10,6 +10,7 @@ class GitHubLogin extends Component {
     children: PropTypes.node,
     className: PropTypes.string,
     clientId: PropTypes.string.isRequired,
+    onRequest: PropTypes.func,
     onSuccess: PropTypes.func,
     onFailure: PropTypes.func,
     redirectUri: PropTypes.string.isRequired,
@@ -19,6 +20,7 @@ class GitHubLogin extends Component {
   static defaultProps = {
     buttonText: 'Sign in with GitHub',
     scope: 'user:email',
+    onRequest: () => {},
     onSuccess: () => {},
     onFailure: () => {},
   }
@@ -36,10 +38,15 @@ class GitHubLogin extends Component {
       { height: 1000, width: 600 }
     );
 
+    this.onRequest();
     popup.then(
       data => this.onSuccess(data),
       error => this.onFailure(error)
     );
+  }
+
+  onRequest = () => {
+    this.props.onRequest();
   }
 
   onSuccess = (data) => {
