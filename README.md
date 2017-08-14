@@ -55,6 +55,12 @@ CSS class for the login button.
 
 Text content for the login button.
 
+#### `onRequest`
+
+`{function}`
+
+Callback for every request.
+
 #### `onSuccess`
 
 `{function}`
