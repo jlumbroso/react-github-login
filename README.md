@@ -55,6 +55,12 @@ CSS class for the login button.
 
 Text content for the login button.
 
+#### `requireCode`
+
+`{boolean}`
+
+Allow skiping 'code' key presence validation on success result, to skip pass 'false' value.
+
 #### `onRequest`
 
 `{function}`
@@ -63,13 +69,13 @@ Callback for every request.
 
 #### `onSuccess`
 
-`{function}`
+`{function}` _required_
 
 Callback for successful login. An object will be passed as an argument to the callback, e.g. `{ "code": "..." }`.
 
 #### `onFailure`
 
-`{function}`
+`{function}` _required_
 
 Callback for errors raised during login.
 

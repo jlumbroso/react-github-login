@@ -20,6 +20,7 @@ class GitHubLogin extends Component {
   static defaultProps = {
     buttonText: 'Sign in with GitHub',
     scope: 'user:email',
+    requireCode: true,
     onRequest: () => {},
     onSuccess: () => {},
     onFailure: () => {},
@@ -50,7 +51,7 @@ class GitHubLogin extends Component {
   }
 
   onSuccess = (data) => {
-    if (!data.code) {
+    if (this.props.requireCode && !data.code) {
       return this.onFailure(new Error('\'code\' not found'));
     }
 
