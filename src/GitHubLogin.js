@@ -13,12 +13,13 @@ class GitHubLogin extends Component {
     onRequest: PropTypes.func,
     onSuccess: PropTypes.func,
     onFailure: PropTypes.func,
-    redirectUri: PropTypes.string.isRequired,
+    redirectUri: PropTypes.string,
     scope: PropTypes.string,
   }
 
   static defaultProps = {
     buttonText: 'Sign in with GitHub',
+    redirectUri: '',
     scope: 'user:email',
     onRequest: () => {},
     onSuccess: () => {},
