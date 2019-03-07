@@ -21,6 +21,7 @@ class GitHubLogin extends Component {
     buttonText: 'Sign in with GitHub',
     redirectUri: '',
     scope: 'user:email',
+    requireCode: true,
     onRequest: () => {},
     onSuccess: () => {},
     onFailure: () => {},
@@ -51,7 +52,7 @@ class GitHubLogin extends Component {
   }
 
   onSuccess = (data) => {
-    if (!data.code) {
+    if (this.props.requireCode && !data.code) {
       return this.onFailure(new Error('\'code\' not found'));
     }
 
