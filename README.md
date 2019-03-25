@@ -8,18 +8,20 @@ React component for [GitHub login](https://developer.github.com/v3/oauth/).
 ## Usage
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import GitHubLogin from 'react-github-login';
+import React from "react";
+import ReactDOM from "react-dom";
+import GitHubLogin from "react-github-login";
 
 const onSuccess = response => console.log(response);
 const onFailure = response => console.error(response);
 
 ReactDOM.render(
-  <GitHubLogin clientId="ac56fad434a3a3c1561e"
+  <GitHubLogin
+    clientId="client id goes here"
     onSuccess={onSuccess}
-    onFailure={onFailure}/>,
-  document.getElementById('example')
+    onFailure={onFailure}
+  />,
+  document.getElementById("example")
 );
 ```
 
@@ -73,11 +75,22 @@ Callback for successful login. An object will be passed as an argument to the ca
 
 Callback for errors raised during login.
 
-
 ## Development
 
 ```sh
 $ npm start
 ```
 
-Webpack development server starts at [http://localhost:8080](http://localhost:8080), loading [example/index.html](github.com/checkr/react-facebook-login/tree/master/example/index.html).
+## Build
+
+```sh
+$ npm run build
+```
+
+## Lint
+
+```sh
+$ npm run lint
+```
+
+Webpack development server starts at [http://localhost:8080](http://localhost:8080).
