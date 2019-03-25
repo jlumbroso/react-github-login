@@ -81,4 +81,16 @@ Callback for errors raised during login.
 $ npm start
 ```
 
+## Build
+
+```sh
+$ npm run build
+```
+
+## Lint
+
+```sh
+$ npm run lint
+```
+
 Webpack development server starts at [http://localhost:8080](http://localhost:8080).
