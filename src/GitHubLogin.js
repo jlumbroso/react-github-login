@@ -13,6 +13,8 @@ class GitHubLogin extends Component {
     onRequest: PropTypes.func,
     onSuccess: PropTypes.func,
     onFailure: PropTypes.func,
+    popupHeight: PropTypes.number,
+    popupWidth: PropTypes.number,
     redirectUri: PropTypes.string,
     scope: PropTypes.string,
   }
@@ -21,22 +23,36 @@ class GitHubLogin extends Component {
     buttonText: 'Sign in with GitHub',
     redirectUri: '',
     scope: 'user:email',
+    popupHeight: 650,
+    popupWidth: 500,
     onRequest: () => {},
     onSuccess: () => {},
     onFailure: () => {},
   }
 
   onBtnClick = () => {
-    const { clientId, scope, redirectUri } = this.props;
+    const { clientId, scope, redirectUri, popupHeight, popupWidth} = this.props;
     const search = toQuery({
       client_id: clientId,
       scope,
       redirect_uri: redirectUri,
     });
+
+    let top = window.screen.height - popupHeight;
+    top = top > 0 ? top / 2 : 0;
+            
+    let left = window.screen.width - popupWidth;
+    left = left > 0 ? left / 2 : 0;
+
     const popup = this.popup = PopupWindow.open(
       'github-oauth-authorize',
       `https://github.com/login/oauth/authorize?${search}`,
-      { height: 1000, width: 600 }
+      { 
+        height: popupHeight, 
+        width: popupWidth,
+        top: top,
+        left: left
+      }
     );
 
     this.onRequest();
