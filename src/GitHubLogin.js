@@ -15,6 +15,7 @@ class GitHubLogin extends Component {
     onFailure: PropTypes.func,
     redirectUri: PropTypes.string,
     scope: PropTypes.string,
+    disabled: PropTypes.bool
   }
 
   static defaultProps = {
@@ -68,6 +69,7 @@ class GitHubLogin extends Component {
 
     if (className) {
       attrs.className = className;
+      attrs.disabled = disabled;
     }
 
     return <button {...attrs}>{ children || buttonText }</button>;
