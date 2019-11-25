@@ -28,11 +28,11 @@ class GitHubLogin extends Component {
 
   onBtnClick = () => {
     const { clientId, scope, redirectUri } = this.props;
-    const search = toQuery({
-      client_id: clientId,
-      scope,
-      redirect_uri: redirectUri,
-    });
+    let obj = {client_id:clientId , scope};
+    if(redirectUri.trim() !=''&&redirectUri!=undefined && redirectUri!=null){
+      obj['redirect_uri']=redirectUri
+    }
+    const search = toQuery(obj);
     const popup = this.popup = PopupWindow.open(
       'github-oauth-authorize',
       `https://github.com/login/oauth/authorize?${search}`,

@@ -1,6 +1,6 @@
 {
-  "name": "react-github-login",
-  "version": "1.0.3",
+  "name": "react-github-login2",
+  "version": "1.0.4",
   "description": "A React Component for GitHub Login",
   "main": "dist/GitHubLogin.js",
   "scripts": {
