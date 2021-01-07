@@ -8,6 +8,7 @@ const onFailure = response => console.error(response);
 ReactDOM.render(
   <GitHubLogin clientId=""
     redirectUri=""
+    host="https://git.generalassemb.ly"
     onSuccess={onSuccess}
     onFailure={onFailure}/>,
   document.getElementById('example')
