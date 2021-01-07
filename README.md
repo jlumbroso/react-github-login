@@ -73,6 +73,12 @@ Callback for successful login. An object will be passed as an argument to the ca
 
 Callback for errors raised during login.
 
+#### `host`
+
+`{string}`
+
+Host for Github login. Defaults to `https://github.com`.
+Can be provided to allow login with Github Enterprise.
 
 ## Development
 
